@@ -11,12 +11,11 @@ const client = new pg.Client({
     ssl: true
 });
 
-router.get('/', function(req, res) {
-    res.json({title: 'Prueba'});
-});
+client.connect();
 
-router.get('/getPublications', function(req, res) {
-    client.connect();
+router.get(express.json());
+
+router.get('/publications', function(req, res) {
     var query = client.query('SELECT * FROM "U_PUBLICATIONS"', (err, results) => {
         if (err) {
             res.status(401).json({ message: err.message});
@@ -37,21 +36,9 @@ router.get('/getPublicationId', function(req, res) {
     });
 });
 
+router.post('/publication', (req, res) => {
+    console.log(req.body);
+    res.send('Ok');
+});
+
 module.exports = router;
-
-
-    /*
-    axios({
-            method: 'POST',
-            url: 'http://localhost:3031/hi',
-            data: {
-                foo: 'bar', // This is the body part
-            }
-        }).then(response => {
-            res.render('index.ejs');
-        })
-        .catch(error => {
-            console.log(error);
-            res.send('error');
-        });
-    */
