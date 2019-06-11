@@ -1,9 +1,29 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Registro
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-input type="text" [(ngModel)]="title" placeholder="Titulo" require></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="10" offset="1">
+        <ion-item>
+          <ion-textarea [(ngModel)]="description" color="black" require></ion-textarea>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-button (click)="sendPublication()">
+    Click me
+  </ion-button>
+</ion-content>

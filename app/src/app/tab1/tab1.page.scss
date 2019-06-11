@@ -1,4 +1,13 @@
-.welcome-card ion-img {
-  max-height: 40vh;
-  overflow: hidden;
+.principal-card {
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    // color: #e4a900;
+    color: white;
+  }
 }

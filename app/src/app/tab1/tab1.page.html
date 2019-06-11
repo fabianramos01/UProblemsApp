@@ -6,33 +6,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ion-card class="welcome-card">
+<ion-content class="publication-cards">
+    <ion-card class="principal-card">
       <ion-img src="assets/image/wall.jpg"></ion-img>
-      <ion-card-header>
-        <ion-card-title>Bienvenido</ion-card-title>
-      </ion-card-header>
+      <div class="card-title">Bienvenido</div>
     </ion-card>
-    <ion-card class="publication-cards">
-      <ion-img src="assets/image/notData.png"></ion-img>
+
+    <ion-card class="publication-card" *ngFor="let publication of publications">
       <ion-header>
         <ion-toolbar>
-          <ion-title>Titulo</ion-title>
+          <ion-title>{{publication.title}}</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-card-content>
-        Keep close to Nature's heart... and break clear away, once in awhile,
-        and climb a mountain or spend a week in the woods. Wash your spirit clean.
-      </ion-card-content>
+      <ion-img src="assets/image/notData.png"></ion-img>
+      <ion-card-content>{{publication.description}}</ion-card-content>
       <ion-row>
         <ion-col size="6">
           <ion-text color="black">
-            <h6>Fecha</h6>
+            <h6>{{publication.date_publication}}</h6>
           </ion-text>
         </ion-col>
         <ion-col size="6">
             <ion-text color="black">
-                <h6>Ubicación</h6>
+                <h6>{{publication.location_publication}}</h6>
             </ion-text>
         </ion-col>
       </ion-row>

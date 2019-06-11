@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ServiceDbService } from './service-db.service';
+import { Publication } from '../models/publication';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +9,19 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  publications: Publication[];
 
+  constructor(private servicedb: ServiceDbService) {}
+
+  ngOnInit(): void {
+    this.loadPublications();    
+  }
+
+  loadPublications() {
+    this.servicedb.loadPublications()
+    .subscribe(res => {
+      console.log(res);
+      this.publications = res;
+    });
+  }
 }

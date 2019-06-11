@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const cors = require('cors');
 
 const pg = require('pg');
 const client = new pg.Client({
@@ -12,6 +13,8 @@ const client = new pg.Client({
 });
 
 client.connect();
+
+router.use(cors());
 
 router.get(express.json());
 
