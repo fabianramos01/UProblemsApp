@@ -28,22 +28,11 @@ router.get('/publications', function(req, res) {
     });
 });
 
-router.get('/getPublicationId', function(req, res) {
-    client.connect();
-    var query = client.query('SELECT * FROM "U_PUBLICATIONS" WHERE = ${req.data.pubId}', (err, results) => {
-        if (err) {
-            res.status(401).json({ message: '${err.message}'});
-        } else {
-            res.status(200).json(results.rows);
-        }
-    });
-});
-
 router.post('/publication', (req, res) => {
     console.log(req.body);
     res.send('Ok');
     var query = client.query('INSERT INTO U_PUBLICATIONS(id_publication, title, description, date_publication, location_publication) VALUES ( nextval("U_PUBLICATIONS_id_publication_seq"), $1, $2, TO_DATE($3, "DD/MM/YYYY"), $4)', 
-        [title, description, date_publication, location_publication], (err, results) => {
+        [req.body.pulication.title, req.body.pulication.description, req.body.pulication.date_publication, req.body.pulication.location_publication], (err, results) => {
         if (err) {
             res.status(401).json({ message: err.message});
         } else {
@@ -53,5 +42,3 @@ router.post('/publication', (req, res) => {
 });
 
 module.exports = router;
-
-id_publication 

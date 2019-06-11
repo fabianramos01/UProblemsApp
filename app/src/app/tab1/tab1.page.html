@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header class="color-black"> 
+  <ion-toolbar class="color-title">
     <ion-title>
       Publicaciones
     </ion-title>
@@ -33,4 +33,9 @@
         </ion-col>
       </ion-row>
     </ion-card>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button  (click)="loadPublications()" class="color-title" color="warning">
+        <ion-icon name="refresh"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
 </ion-content>

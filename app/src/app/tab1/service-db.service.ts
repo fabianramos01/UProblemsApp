@@ -14,7 +14,8 @@ export class ServiceDbService {
     return this.http.get<Publication[]>('http://localhost:3030/publications');
   }
 
-  sendPublication(publication) : Observable<any> {
-    return this.http.post<any>('http://localhost:3030/sendPublication', publication);
+  sendPublication (publication) : Observable<any> {
+    console.log(publication);
+    return this.http.post<any>('http://localhost:3030/publication', {id: 1});
   }
 }

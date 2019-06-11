@@ -15,10 +15,13 @@ export class Tab2Page {
   constructor(private serviceDb: ServiceDbService) {}
 
   sendPublication() {
-    // new Date();
     let publication:Publication;
+    publication = new Publication();
+    let date = new Date();
+    publication.date_publication = date.getDate() + "/" + (parseInt(date.getMonth() + "")+1) + "/" + date.getFullYear() + " - " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     publication.title = this.title;
     publication.description = this.description;
+    publication.location_publication = "......";
     this.serviceDb.sendPublication(publication);
   }
 }
