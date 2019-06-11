@@ -42,6 +42,16 @@ router.get('/getPublicationId', function(req, res) {
 router.post('/publication', (req, res) => {
     console.log(req.body);
     res.send('Ok');
+    var query = client.query('INSERT INTO U_PUBLICATIONS(id_publication, title, description, date_publication, location_publication) VALUES ( nextval("U_PUBLICATIONS_id_publication_seq"), $1, $2, TO_DATE($3, "DD/MM/YYYY"), $4)', 
+        [title, description, date_publication, location_publication], (err, results) => {
+        if (err) {
+            res.status(401).json({ message: err.message});
+        } else {
+            res.status(200).json(results.rows);
+        }
+    });
 });
 
 module.exports = router;
+
+id_publication 
