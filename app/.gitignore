@@ -31,6 +31,7 @@ $RECYCLE.BIN/
 
 node_modules/
 e2e/
+package-lock.json
 
 .DS_Store
 Thumbs.db
